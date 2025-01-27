@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">JanKotlin</string>
+    <string name="enter_mobile_no">Enter Mobile No</string>
+    <string name="enter_password">Enter Password</string>
+</resources>
