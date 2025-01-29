@@ -1,6 +1,7 @@
 package com.example.jankotlin
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -16,6 +17,7 @@ class StudentActivity : AppCompatActivity() {
     lateinit var edUserName: EditText
     lateinit var btnSubmit: Button
     val db = MyApp.database
+    lateinit var btnViewAll : Button
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,6 +26,12 @@ class StudentActivity : AppCompatActivity() {
         edEnrollmentno = findViewById(R.id.edEnrollmentno)
         edUserName = findViewById(R.id.edUserName)
         btnSubmit = findViewById(R.id.btnsubmit)
+        btnViewAll = findViewById(R.id.btnviewAll)
+
+        btnViewAll.setOnClickListener {
+            val intent = Intent(this, RecyclerViewActivity::class.java)
+            startActivity(intent)
+        }
 
         btnSubmit.setOnClickListener {
             val enrollmentno = edEnrollmentno.text.toString()
