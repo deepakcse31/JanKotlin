@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
+import com.example.jankotlin.screen.OperationActivity
 import kotlinx.coroutines.launch
 
 class StudentActivity : AppCompatActivity() {
@@ -29,7 +30,7 @@ class StudentActivity : AppCompatActivity() {
         btnViewAll = findViewById(R.id.btnviewAll)
 
         btnViewAll.setOnClickListener {
-            val intent = Intent(this, RecyclerViewActivity::class.java)
+            val intent = Intent(this, OperationActivity::class.java)
             startActivity(intent)
         }
 
