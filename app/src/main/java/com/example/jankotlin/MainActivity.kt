@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
+import com.example.jankotlin.view.CounterActivity
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -32,32 +33,30 @@ class MainActivity : AppCompatActivity() {
         edtBranch = findViewById(R.id.edtbranch)
         edtSem = findViewById(R.id.edtsem)
         btnSubmit = findViewById(R.id.btnSubmit)
-        viewAll = findViewById(R.id.tvviewall)
 
 
 
         btnSubmit.setOnClickListener {
+            val intent = Intent(this, CounterActivity::class.java)
+            startActivity(intent)
 
-            val name = edtName.text.toString()
-            val rollNo = edtRollNo.text.toString()
-            val branch = edtBranch.text.toString()
-            val sem = edtSem.text.toString()
-            lifecycleScope.launch {
-                database.studentDao().insertStudent(StudentData(name = name, rollNo = rollNo, branch = branch, semester = sem))
-                Toast.makeText(this@MainActivity, "Data Inserted", Toast.LENGTH_SHORT).show()
-
-            }
-            edtName.text.clear()
-            edtRollNo.text.clear()
-            edtBranch.text.clear()
-            edtSem.text.clear()
+//            val name = edtName.text.toString()
+//            val rollNo = edtRollNo.text.toString()
+//            val branch = edtBranch.text.toString()
+//            val sem = edtSem.text.toString()
+//            lifecycleScope.launch {
+//                database.studentDao().insertStudent(StudentData(name = name, rollNo = rollNo, branch = branch, semester = sem))
+//                Toast.makeText(this@MainActivity, "Data Inserted", Toast.LENGTH_SHORT).show()
+//
+//            }
+//            edtName.text.clear()
+//            edtRollNo.text.clear()
+//            edtBranch.text.clear()
+//            edtSem.text.clear()
 
         }
 
-    viewAll.setOnClickListener {
-        val intent = Intent(this, StudentDetailsActivity::class.java)
-        startActivity(intent)
-    }
+
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
